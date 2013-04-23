@@ -1,0 +1,27 @@
+2013-04-22 23:46:50.566 RouseTests[12090:1803] MonoTouch: Socket error while connecting to MonoDevelop on 127.0.0.1:10000: Connection refused
+2013-04-22 23:46:53.245 RouseTests[12090:c07] [Runner executing:	Run Everything]
+2013-04-22 23:46:53.246 RouseTests[12090:c07] [MonoTouch Version:	6.2.3]
+2013-04-22 23:46:53.247 RouseTests[12090:c07] [iPhone Simulator:	iPhone OS v6.1]
+2013-04-22 23:46:53.247 RouseTests[12090:c07] [Device Name:	iPhone Simulator]
+2013-04-22 23:46:53.248 RouseTests[12090:c07] [Device UDID:	93f481f0e9eb5ddfa4bb141c145a700200000000]
+2013-04-22 23:46:53.251 RouseTests[12090:c07] [Device Date/Time:	4/22/2013 11:46:53 PM]
+2013-04-22 23:46:53.252 RouseTests[12090:c07] [Bundle:	com.yourcompany.rousetests]
+2013-04-22 23:46:53.257 RouseTests[12090:c07] RouseTests
+2013-04-22 23:46:53.257 RouseTests[12090:c07] LayerUtilsTests
+2013-04-22 23:46:53.271 RouseTests[12090:c07] 	[PASS] CanGetPropertyValueForName
+2013-04-22 23:46:53.274 RouseTests[12090:c07] 	[PASS] CanGetPropertyValueForNameWithAnchorTopLeft
+2013-04-22 23:46:53.275 RouseTests[12090:c07] LayerUtilsTests : 16.351 ms
+2013-04-22 23:46:53.275 RouseTests[12090:c07] PropertiesTests
+2013-04-22 23:46:53.276 RouseTests[12090:c07] 	[PASS] CanCreatePropertiesObject
+2013-04-22 23:46:53.277 RouseTests[12090:c07] PropertiesTests : 1.051 ms
+2013-04-22 23:46:53.277 RouseTests[12090:c07] RouseToTests
+2013-04-22 23:46:53.284 RouseTests[12090:c07] 	[PASS] RouseCanTakeTargetDurationAndProperties
+2013-04-22 23:46:53.284 RouseTests[12090:c07] RouseToTests : 6.76 ms
+2013-04-22 23:46:53.285 RouseTests[12090:c07] TypeUtilsTests
+2013-04-22 23:46:53.286 RouseTests[12090:c07] 	[PASS] RouseCanGetTypeOfUIViewForUIButton
+2013-04-22 23:46:53.287 RouseTests[12090:c07] 	[PASS] RouseCanGetTypeOfUIViewForUIView
+2013-04-22 23:46:53.287 RouseTests[12090:c07] 	[PASS] RouseCanTellCALayerIsNotUIView
+2013-04-22 23:46:53.288 RouseTests[12090:c07] TypeUtilsTests : 2.73 ms
+2013-04-22 23:46:53.289 RouseTests[12090:c07] RouseTests : 30.611 ms
+2013-04-22 23:46:53.290 RouseTests[12090:c07] Tests run: 7 Passed: 7 Inconclusive: 0 Failed: 0 Ignored: 0
+Terminating in response to SpringBoard's termination.
