@@ -37,7 +37,7 @@ namespace RouseLib
 
 		public static float GetCurrentValue (CALayer layer, string propertyName)
 		{
-			switch (propertyName) {
+			switch (propertyName.ToLower()) {
 			case "positionx":
 				return layer.Position.X;
 			case "positiony":
@@ -51,10 +51,10 @@ namespace RouseLib
 
 		public static string GetKeyPath (string name)
 		{
-			if (!KeyPaths.ContainsKey (name)) {
+			if (!KeyPaths.ContainsKey (name.ToLower())) {
 				throw new NotImplementedException ();
 			} else {
-				return KeyPaths [name] as string;
+				return KeyPaths [name.ToLower()] as string;
 			}
 		}
 	}

@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F90320F6-52D7-4A05-A938-A912D0EAAFD8}</ProjectGuid>
+    <ProjectGuid>{E6CC5165-C0B2-4101-8784-71EC35669469}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RouseTests</RootNamespace>
+    <RootNamespace>RouseSamples</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>RouseTests</AssemblyName>
+    <AssemblyName>RouseSamples</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,7 +80,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="MonoTouch.NUnitLite" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -90,10 +89,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
-    <Compile Include="UnitTestAppDelegate.cs" />
-    <Compile Include="TypeUtilsTests.cs" />
-    <Compile Include="LayerUtilsTests.cs" />
-    <Compile Include="RouseToTests.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="RouseSamplesViewController.cs" />
+    <Compile Include="RouseSamplesViewController.designer.cs">
+      <DependentUpon>RouseSamplesViewController.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="RouseSamplesViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

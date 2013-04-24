@@ -31,6 +31,11 @@ namespace RouseTests
 			Assert.AreEqual(value, layer.Position.X);
 		}
 
+		[Test]
+		public void CanGetKeyPathForProperty()
+		{
+			Assert.AreEqual("position.x", LayerUtils.GetKeyPath("PositionX"));
+		}
 
 	}
 }

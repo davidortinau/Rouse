@@ -21,26 +21,25 @@ public class Rouse
 
 	public static void To(object target, 
 	                      float duration, 
-	                      object properties)
+	                      KeyPaths properties)
 	{
-		To (target, duration, properties, null, null, null);
+		To (target, duration, properties, null, Easing.Easing.EaseInExpo, null);
 	}
 
 	public static void To(object target, 
 	                      float duration, 
-	                      object properties, 
-	                      EasingFormula easing = null, 
-	                      Action onComplete = null)
+	                      KeyPaths properties, 
+	                      EasingFormula easing)
 	{
-		To (target, duration, properties, null, easing, onComplete);
+		To (target, duration, properties, null, easing, null);
 	}
 
 	public static void To(object target, 
 	                      float duration, 
-	                      object properties, 
-	                      object options = null, 
-	                      EasingFormula easing = null, 
-	                      Action onComplete = null)
+	                      KeyPaths properties, 
+	                      object options, 
+	                      EasingFormula easing, 
+	                      Action onComplete)
 	{
 		CALayer layer;
 		if(TypeUtils.IsUIView(target)){
@@ -68,17 +67,21 @@ public class Rouse
 		}
 
 		var animations = new List<CAKeyFrameAnimation>();
-		foreach(PropertyInfo propertyInfo in properties.GetType().GetProperties())
+		var propType = properties.GetType();
+		foreach(var field in propType.GetFields(BindingFlags.Instance | 
+		                                                        BindingFlags.NonPublic |
+		                                                        BindingFlags.Public))
 		{
-			if (propertyInfo.CanRead)
+			// TODO if property value null, bypass it
+			if (field.GetValue(properties) != null)
 			{
 				var ka = new CAKeyFrameAnimation();
-				ka.KeyPath = LayerUtils.GetKeyPath(propertyInfo.Name);
+				ka.KeyPath = LayerUtils.GetKeyPath(field.Name);
 				ka.Duration = duration;
 //				ka.BeginTime = localTime;
 
-				var fromValue = LayerUtils.GetCurrentValue(layer, propertyInfo.Name);
-				var toValue = Convert.ToSingle( propertyInfo.GetValue(properties, null) );
+				var fromValue = LayerUtils.GetCurrentValue(layer, field.Name);
+				var toValue = Convert.ToSingle( field.GetValue(properties) );
 				ka.Values = KeyFrameUtils.CreateKeyValues((float)fromValue, (float)toValue, easing);
 
 				ka.FillMode = CAFillMode.Forwards;
