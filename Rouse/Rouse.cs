@@ -2,6 +2,7 @@ using MonoTouch.UIKit;
 using MonoTouch.CoreAnimation;
 using MonoTouch.CoreGraphics;
 using System;
+using System.Drawing;
 
 /// <summary>
 /// Rouse generates animation blocks and applies them to a target object
@@ -47,6 +48,8 @@ public class Rouse
 			layer = target as CALayer;
 		}
 
+		layer.RemoveAllAnimations(); // kill any previous animations hanging around
+
 		if (easing == null){
 			easing = Easing.EaseInSine;
 		}
@@ -59,6 +62,7 @@ public class Rouse
 		group.Duration = duration;
 		group.FillMode = CAFillMode.Forwards;
 		group.RemovedOnCompletion = false;
+		group.RepeatCount = 0;
 		if(onComplete != null){
 			group.AnimationStopped += (object sender, CAAnimationStateEventArgs e) => {
 				onComplete.Invoke();
@@ -71,13 +75,12 @@ public class Rouse
 		                                                        BindingFlags.NonPublic |
 		                                                        BindingFlags.Public))
 		{
-			// TODO if property value null, bypass it
 			if (field.GetValue(properties) != null)
 			{
 				var ka = new CAKeyFrameAnimation();
 				ka.KeyPath = LayerUtils.GetKeyPath(field.Name);
 				ka.Duration = duration;
-//				ka.BeginTime = localTime;
+				ka.BeginTime = localTime;
 
 				var fromValue = LayerUtils.GetCurrentValue(layer, field.Name);
 				var toValue = Convert.ToSingle( field.GetValue(properties) );
@@ -88,13 +91,25 @@ public class Rouse
 				ka.TimingFunction = CAMediaTimingFunction.FromName( CAMediaTimingFunction.Linear );
 
 				animations.Add( ka );
+				setLayerProperties(layer, field.Name, toValue);
 			}
 		}
 
 		group.Animations = animations.ToArray();
 		layer.AddAnimation( group, "rouseAnimations" );
+	}
 
-		// now set the final properties on the layer?
+	static void setLayerProperties (CALayer layer, string name, float toValue)
+	{
+//		layer.SetNativeField(name, NSNumber.FromFloat(toValue));
+		switch(name){
+		case "PositionX":
+			layer.Frame = new RectangleF(new PointF(toValue, layer.Frame.Y), layer.Frame.Size);
+			break;
+		case "Opacity":
+			layer.Opacity = toValue;
+			break;
+		}
 	}
 }
 //}

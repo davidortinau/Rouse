@@ -7,7 +7,7 @@ namespace RouseLib
 	{
 		public float? PositionX;
 		public float? PositionY;
-		public float? Opacity;
+		public double? Opacity;
 		public float? Rotation;
 		public float? RotationX;
 		public float? RotationY;

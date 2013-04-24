@@ -13,13 +13,14 @@ namespace RouseLib.Utils
 			NSObject[] values = new NSObject[steps];
 			double value = 0;
 			float curTime = 0;
-			for (int t = 0; t < steps; t++) {
+			for (int t = 0; t < steps-1; t++) {
 				curTime = (float)t / (float)steps;
 				var easingFactor = easingFormula(curTime, 0, 1);
 				value = (toValue - fromValue) * easingFactor + fromValue;
 				
 				values[t] = NSNumber.FromDouble(value);
 			}
+			values[steps-1] = NSNumber.FromFloat( toValue );
 			return values;
 		}
 	}

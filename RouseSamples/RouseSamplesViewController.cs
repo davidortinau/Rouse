@@ -47,10 +47,10 @@ namespace RouseSamples
 			moveBtn.Frame = new RectangleF(550, 20, 200, 40);
 			moveBtn.SetTitle("Move X", UIControlState.Normal);
 			moveBtn.TouchUpInside += (object sender, EventArgs e) => {
-				if(logo.PresentationLayer.Position.X < 400){
-					Rouse.To (logo, 1, new RouseLib.KeyPaths{ PositionX = 400});
+				if(logo.PresentationLayer.Frame.X < 400){
+					Rouse.To (logo, 1, new RouseLib.KeyPaths{ PositionX = 400, Opacity = 0.2});
 				}else{
-					Rouse.To (logo, 1, new RouseLib.KeyPaths{ PositionX = 20});
+					Rouse.To (logo, 1, new RouseLib.KeyPaths{ PositionX = 20, Opacity = 1});
 				}
 			};
 			View.AddSubview( moveBtn );
