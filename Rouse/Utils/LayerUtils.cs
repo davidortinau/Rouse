@@ -12,7 +12,7 @@ namespace RouseLib
 			{"y", "position.y"},
 			{"positionx", "position.x"},
 			{"positiony", "position.y"},
-			{"alpha", "alpha"},
+			{"opacity", "opacity"},
 			{"rotationx", "rotation.x"},
 			{"rotationy", "rotation.y"},
 			{"rotationz", "rotation.z"},

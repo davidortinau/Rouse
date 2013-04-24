@@ -94,6 +94,10 @@
     <Compile Include="RouseSamplesViewController.designer.cs">
       <DependentUpon>RouseSamplesViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="CanChangeOpacity.cs" />
+    <Compile Include="CanChangeOpacity.designer.cs">
+      <DependentUpon>CanChangeOpacity.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="RouseSamplesViewController.xib" />
@@ -104,5 +108,8 @@
       <Project>{3E63D43D-8677-4DE6-B2FF-0CEE41580DA3}</Project>
       <Name>Rouse</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-100.png" />
   </ItemGroup>
 </Project>

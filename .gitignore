@@ -7,3 +7,5 @@
 /Rouse/bin/Debug/Rouse.dll.mdb
 /RouseSamples/bin/
 /RouseSamples/obj/
+/Rouse.Tests/bin/iPhoneSimulator/Debug/RouseTests.app/RouseTests
+/Rouse.Tests/obj/Debug/monotouch_version
