@@ -1,6 +1,5 @@
 using System;
 using MonoTouch.Foundation;
-using Easing;
 
 namespace RouseLib.Utils
 {

@@ -7,7 +7,6 @@ using System;
 /// Rouse generates animation blocks and applies them to a target object
 /// </summary>
 using MonoTouch.Foundation;
-using Easing;
 
 //namespace {
 using RouseLib.Utils;
@@ -23,7 +22,7 @@ public class Rouse
 	                      float duration, 
 	                      KeyPaths properties)
 	{
-		To (target, duration, properties, null, Easing.Easing.EaseInExpo, null);
+		To (target, duration, properties, null, Easing.EaseInExpo, null);
 	}
 
 	public static void To(object target, 
@@ -49,7 +48,7 @@ public class Rouse
 		}
 
 		if (easing == null){
-			easing = Easing.Easing.EaseInSine;
+			easing = Easing.EaseInSine;
 		}
 
 		// if more than one property, need a group...maybe just make a group anyway

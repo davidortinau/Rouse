@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Easing {
+namespace RouseLib {
 	public delegate float EasingFormula(float t, float start, float length);
 
 	/// <summary>

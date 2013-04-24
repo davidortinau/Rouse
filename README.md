@@ -10,7 +10,7 @@ Attempting to:
 Example:
 
 <pre>
-Rouse.To( layer, 1, new {positionx = 120}, Easing.EaseOutExpo );
+Rouse.To( layer, 1, new KeyPaths{ PositionX = 120}, Easing.EaseOutExpo );
 </pre>
 
 

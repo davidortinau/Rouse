@@ -44,6 +44,10 @@ namespace RouseLib
 				return layer.Position.Y;
 			case "alpha":
 				return layer.Opacity;
+//			case "rotation":
+//				return layer.Transform.Rotate;
+//			case "translation":
+//				return layer.Transform.Translate;
 			default:
 				return 0;
 			}
