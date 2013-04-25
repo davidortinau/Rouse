@@ -10,17 +10,17 @@ namespace RouseLib.Utils
 		/// </summary>
 		public static NSObject[] CreateKeyValues (float fromValue, float toValue, EasingFormula easingFormula, int steps = 100)
 		{
-			NSObject[] values = new NSObject[steps];
+			NSObject[] values = new NSObject[steps+1];
 			double value = 0;
 			float curTime = 0;
-			for (int t = 0; t < steps-1; t++) {
+			for (int t = 0; t < steps; t++) {
 				curTime = (float)t / (float)steps;
 				var easingFactor = easingFormula(curTime, 0, 1);
 				value = (toValue - fromValue) * easingFactor + fromValue;
 				
 				values[t] = NSNumber.FromDouble(value);
 			}
-			values[steps-1] = NSNumber.FromFloat( toValue );
+			values[steps] = NSNumber.FromFloat( toValue );
 			return values;
 		}
 	}

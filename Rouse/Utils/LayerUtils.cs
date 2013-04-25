@@ -42,7 +42,7 @@ namespace RouseLib
 				return layer.Position.X;
 			case "positiony":
 				return layer.Position.Y;
-			case "alpha":
+			case "opacity":
 				return layer.Opacity;
 //			case "rotation":
 //				return layer.Transform.Rotate;
