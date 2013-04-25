@@ -100,8 +100,7 @@ public class Rouse
 //		layer.SetValueForKeyPath(NSNumber.FromFloat(toValue), (NSString)name);
 		switch(name){
 		case "PositionX":
-			layer.Frame = new RectangleF(new PointF(toValue, layer.Frame.Y), layer.Frame.Size);
-//			layer.Position.X = toValue;
+			layer.Frame = new RectangleF(new PointF(toValue - (layer.Frame.Width * layer.AnchorPoint.X), layer.Frame.Y), layer.Frame.Size);
 			break;
 		case "Opacity":
 			layer.Opacity = toValue;
