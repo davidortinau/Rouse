@@ -56,37 +56,15 @@ namespace RouseSamples
 			moveBtn.Frame = new RectangleF(550, 20, 200, 40);
 			moveBtn.SetTitle("Move X", UIControlState.Normal);
 			moveBtn.TouchUpInside += (object sender, EventArgs e) => {
-				Console.WriteLine("Frame.X {0}", logo.PresentationLayer.Frame.X);
-				if(logoView.Layer.PresentationLayer.Frame.X < 400){
-//					var localTime = CAAnimation.CurrentMediaTime();
-//
-//					var ka = new CAKeyFrameAnimation();
-//					ka.KeyPath = "position.x";
-//					ka.BeginTime = 0;
-//					ka.Duration = 1;
-//					ka.TimingFunction = CAMediaTimingFunction.FromName( CAMediaTimingFunction.Linear );
-//					ka.Values = KeyFrameUtils.CreateKeyValues(logoView.Layer.Position.X, 400f, RouseLib.Easing.EaseInExpo);
-//
-//					var ka2 = new CAKeyFrameAnimation();
-//					ka2.KeyPath = "opacity";
-//					ka2.BeginTime = 0;
-//					ka2.Duration = 1;
-//					ka2.TimingFunction = CAMediaTimingFunction.FromName( CAMediaTimingFunction.Linear );
-//					ka2.Values = KeyFrameUtils.CreateKeyValues(1, 0.2f, RouseLib.Easing.EaseInExpo);
-//
-//					var group = CAAnimationGroup.CreateAnimation();
-//					group.BeginTime = localTime;
-//					group.Duration = 1;
-//					group.FillMode = CAFillMode.Forwards;
-//					group.RemovedOnCompletion = false;
-//					group.Animations = new CAAnimation[]{ ka, ka2 };
-//					logoView.Layer.AddAnimation( group, null );
-
-					Console.WriteLine("GO");
-					Rouse.To (logo, 1, new RouseLib.KeyPaths{ PositionX = 400, Opacity = 0.2}, Easing.EaseInExpo);
-//					logoView.Frame = new RectangleF(400, 200, 100, 100);
+				Console.WriteLine("Frame.X {0} or Position.X {1}", logoView.Layer.PresentationLayer.Frame.X, logoView.Layer.PresentationLayer.Position.X);
+				if(logoView.Layer.PresentationLayer.Position.X < 400){
+					Console.WriteLine("go right");
+					Rouse.To (logoView, 1, new RouseLib.KeyPaths{ PositionX = 400, Opacity = 0.2}, Easing.EaseInExpo);
+//					logoView.Layer.Frame = new RectangleF(400, 200, 100, 100);
 				}else{
-					Rouse.To (logoView, 1, new RouseLib.KeyPaths{ PositionX = 20, Opacity = 1});
+					Console.WriteLine("go left");
+					Rouse.To (logoView, 1, new RouseLib.KeyPaths{ PositionX = 70, Opacity = 1}, Easing.EaseOutExpo);
+//					logoView.Layer.Frame = new RectangleF(20, 200, 100, 100);
 				}
 			};
 			View.AddSubview( moveBtn );

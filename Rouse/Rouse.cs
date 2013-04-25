@@ -48,7 +48,7 @@ public class Rouse
 			layer = target as CALayer;
 		}
 
-		layer.RemoveAllAnimations(); // kill any previous animations hanging around
+//		layer.RemoveAllAnimations(); // kill any previous animations hanging around
 
 		if (easing == null){
 			easing = Easing.EaseInSine;
@@ -72,7 +72,7 @@ public class Rouse
 				ka.Values = KeyFrameUtils.CreateKeyValues((float)fromValue, (float)toValue, easing);
 
 				animations.Add( ka );
-//				setLayerProperties(layer, field.Name, toValue);
+				setLayerProperties(layer, field.Name, toValue);
 			}
 		}
 
