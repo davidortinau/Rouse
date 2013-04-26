@@ -15,7 +15,8 @@ namespace RouseSamples
 	{
 		// class-level declarations
 		UIWindow window;
-		RouseSamplesViewController viewController;
+
+		UISplitViewController splitView;
 
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -28,8 +29,10 @@ namespace RouseSamples
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
-			viewController = new RouseSamplesViewController ();
-			window.RootViewController = viewController;
+			splitView = new SplitViewController();
+			window.RootViewController = splitView;
+
+
 			window.MakeKeyAndVisible ();
 			
 			return true;

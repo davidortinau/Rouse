@@ -102,6 +102,9 @@ public class Rouse
 		case "PositionX":
 			layer.Frame = new RectangleF(new PointF(toValue - (layer.Frame.Width * layer.AnchorPoint.X), layer.Frame.Y), layer.Frame.Size);
 			break;
+		case "PositionY":
+			layer.Frame = new RectangleF(new PointF(layer.Frame.X, toValue - (layer.Frame.Height * layer.AnchorPoint.Y)), layer.Frame.Size);
+			break;
 		case "Opacity":
 			layer.Opacity = toValue;
 			break;

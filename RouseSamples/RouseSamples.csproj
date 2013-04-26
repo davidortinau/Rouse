@@ -80,9 +80,12 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="New Folder\" />
+    <Folder Include="Code\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -90,17 +93,29 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="RouseSamplesViewController.cs" />
     <Compile Include="RouseSamplesViewController.designer.cs">
-      <DependentUpon>RouseSamplesViewController.cs</DependentUpon>
+      <DependentUpon>PositionXViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="CanChangeOpacity.cs" />
     <Compile Include="CanChangeOpacity.designer.cs">
       <DependentUpon>CanChangeOpacity.cs</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="RouseSamplesViewController.xib" />
+    <Compile Include="MasterViewController.cs" />
+    <Compile Include="SplitViewController.cs" />
+    <Compile Include="SplitViewController.designer.cs">
+      <DependentUpon>SplitViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDetailViewController.cs" />
+    <Compile Include="PositionXViewController.cs" />
+    <Compile Include="Code\UIColorExtensions.cs" />
+    <Compile Include="Code\NavigationTable\NavItem.cs" />
+    <Compile Include="Code\NavigationTable\NavItemGroup.cs" />
+    <Compile Include="Code\NavigationTable\NavItemTableSource.cs" />
+    <Compile Include="Code\NavigationTable\RowClickedEventArgs.cs" />
+    <Compile Include="PositionYViewController.cs" />
+    <Compile Include="PositionYViewController.designer.cs">
+      <DependentUpon>PositionYViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
