@@ -64,6 +64,7 @@ public class Rouse
 			{
 				var ka = new CAKeyFrameAnimation();
 				ka.KeyPath = LayerUtils.GetKeyPath(field.Name);
+				Console.WriteLine("KeyPath {0}", ka.KeyPath);
 				ka.Duration = duration;
 				ka.TimingFunction = CAMediaTimingFunction.FromName( CAMediaTimingFunction.Linear );
 
@@ -112,7 +113,8 @@ public class Rouse
 			layer.Opacity = toValue;
 			break;
 		case "Scale":
-			layer.ContentsScale = toValue;
+			// TODO transform.scale
+//			layer.ContentsScale = toValue;
 			break;
 		}
 	}

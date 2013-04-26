@@ -17,7 +17,7 @@ namespace RouseLib
 			{"rotationy", "rotation.y"},
 			{"rotationz", "rotation.z"},
 			{"rotation", "rotation"},
-			{"scale", "scale"},
+			{"scale", "transform.scale"},
 			{"scalex", "scale.x"},
 			{"scaley", "scale.y"},
 			{"scalez", "scale.z"},
@@ -44,6 +44,8 @@ namespace RouseLib
 				return layer.Position.Y;
 			case "opacity":
 				return layer.Opacity;
+			case "scale":
+				return layer.PresentationLayer.Transform.m11;
 //			case "rotation":
 //				return layer.Transform.Rotate;
 //			case "translation":
