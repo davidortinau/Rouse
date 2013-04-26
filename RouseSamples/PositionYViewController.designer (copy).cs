@@ -11,8 +11,5 @@ namespace RouseSamples
 	[Register ("PositionYViewController")]
 	partial class PositionYViewController
 	{
-		void ReleaseDesignerOutlets ()
-		{
-		}
 	}
 }

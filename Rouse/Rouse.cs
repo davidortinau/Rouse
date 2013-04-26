@@ -72,7 +72,10 @@ public class Rouse
 				ka.Values = KeyFrameUtils.CreateKeyValues((float)fromValue, (float)toValue, easing);
 
 				animations.Add( ka );
-				setLayerProperties(layer, field.Name, toValue);
+
+//				if(TypeUtils.IsUIView(target)){
+					setLayerProperties(layer, field.Name, toValue);
+//				}
 			}
 		}
 
@@ -107,6 +110,9 @@ public class Rouse
 			break;
 		case "Opacity":
 			layer.Opacity = toValue;
+			break;
+		case "Scale":
+			layer.ContentsScale = toValue;
 			break;
 		}
 	}

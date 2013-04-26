@@ -12,7 +12,7 @@ namespace RouseLib
 //		public float? RotationX;
 //		public float? RotationY;
 //		public float? RotationZ;
-//		public float? Scale;
+		public float? Scale;
 //		public float? ScaleX;
 //		public float? ScaleY;
 //		public float? ScaleZ;

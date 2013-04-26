@@ -29,6 +29,8 @@ namespace RouseSamples
 			navItems.Add (navGroup);
 			navGroup.Items.Add (new NavItem ("PositionX", "", typeof (PositionXViewController)));
 			navGroup.Items.Add (new NavItem ("PositionY", "", typeof (PositionYViewController)));
+			navGroup.Items.Add (new NavItem ("Opacity", "", typeof (CanChangeOpacity)));
+			navGroup.Items.Add (new NavItem ("Scale", "", typeof (ScaleViewController)));
 
 			
 			NavItemGroup caGroup = new NavItemGroup("CA Animations");

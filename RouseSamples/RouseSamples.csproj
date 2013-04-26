@@ -113,9 +113,10 @@
     <Compile Include="Code\NavigationTable\NavItemTableSource.cs" />
     <Compile Include="Code\NavigationTable\RowClickedEventArgs.cs" />
     <Compile Include="PositionYViewController.cs" />
-    <Compile Include="PositionYViewController.designer.cs">
-      <DependentUpon>PositionYViewController.cs</DependentUpon>
+    <Compile Include="PositionYViewController.designer %28copy%29.cs">
+      <DependentUpon>ScaleViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScaleViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

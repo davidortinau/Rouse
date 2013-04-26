@@ -58,8 +58,10 @@ namespace RouseSamples
 			moveBtn.TouchUpInside += (object sender, EventArgs e) => {
 				if(logoView.Layer.PresentationLayer.Position.X < 400){
 					Rouse.To (logoView, 1, new RouseLib.KeyPaths{ PositionX = 400}, Easing.EaseInExpo);
+					Rouse.To (logo, 1, new RouseLib.KeyPaths{ PositionX = 400}, Easing.EaseInExpo);
 				}else{
 					Rouse.To (logoView, 1, new RouseLib.KeyPaths{ PositionX = 70}, Easing.EaseOutExpo);
+					Rouse.To (logo, 1, new RouseLib.KeyPaths{ PositionX = 70}, Easing.EaseOutExpo);
 				}
 			};
 			View.AddSubview( moveBtn );

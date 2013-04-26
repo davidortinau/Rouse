@@ -9,9 +9,11 @@ using RouseLib;
 
 namespace RouseSamples
 {
-	public partial class CanChangeOpacity : UIViewController
+	public partial class CanChangeOpacity : BaseDetailViewController
 	{
 		CALayer logo;
+
+		UIImageView logoView;
 
 		public override void DidReceiveMemoryWarning ()
 		{
@@ -33,20 +35,36 @@ namespace RouseSamples
 			base.ViewDidAppear (animated);
 
 			initUI();
-			initAnimation();
+			initButtons();
 		}
 
 		void initUI ()
 		{
 			logo = new CALayer();
 			logo.Contents = UIImage.FromBundle("icon-100.png").CGImage;
-			logo.Frame = new RectangleF(20, 20, logo.Contents.Width, logo.Contents.Height);
+			logo.Frame = new RectangleF(20, 60, logo.Contents.Width, logo.Contents.Height);
 			View.Layer.AddSublayer( logo );
+
+			logoView = new UIImageView( new RectangleF(20, 200, 100, 100));
+			logoView.Image = UIImage.FromBundle("icon-100.png");
+			View.AddSubview( logoView );
 		}
 
-		void initAnimation ()
+		void initButtons()
 		{
-			Rouse.To( logo, 2, new KeyPaths{ Opacity = 0}, Easing.EaseInExpo);
+			var btn = new UIButton( UIButtonType.RoundedRect );
+			btn.Frame = new RectangleF(View.Bounds.Width - 340, 60, 200, 40);
+			btn.SetTitle("Toggle Opacity", UIControlState.Normal);
+			btn.TouchUpInside += (object sender, EventArgs e) => {
+				if(logo.PresentationLayer.Opacity > 0){
+					Rouse.To (logo, 1, new KeyPaths{ Opacity = 0}, Easing.EaseInExpo);
+					Rouse.To (logoView, 1, new KeyPaths{ Opacity = 0}, Easing.EaseInExpo); // TODO pass multiple targets to animation
+				}else{
+					Rouse.To (logo, 1, new KeyPaths{ Opacity = 1}, Easing.EaseOutExpo);
+					Rouse.To (logoView, 1, new KeyPaths{ Opacity = 1}, Easing.EaseInExpo);
+				}
+			};
+			View.AddSubview( btn );
 		}
 	}
 }
