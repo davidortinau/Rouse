@@ -64,7 +64,7 @@ public class Rouse
 			{
 				var ka = new CAKeyFrameAnimation();
 				ka.KeyPath = LayerUtils.GetKeyPath(field.Name);
-				Console.WriteLine("KeyPath {0}", ka.KeyPath);
+				ka.BeginTime = 0;
 				ka.Duration = duration;
 				ka.TimingFunction = CAMediaTimingFunction.FromName( CAMediaTimingFunction.Linear );
 
@@ -72,11 +72,11 @@ public class Rouse
 				var toValue = Convert.ToSingle( field.GetValue(properties) );
 				ka.Values = KeyFrameUtils.CreateKeyValues((float)fromValue, (float)toValue, easing);
 
-				animations.Add( ka );
-
-//				if(TypeUtils.IsUIView(target)){
+				if(TypeUtils.IsUIView(target)){
 					setLayerProperties(layer, field.Name, toValue);
-//				}
+				}
+
+				animations.Add( ka );
 			}
 		}
 

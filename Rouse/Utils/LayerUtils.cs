@@ -39,11 +39,11 @@ namespace RouseLib
 		{
 			switch (propertyName.ToLower()) {
 			case "positionx":
-				return layer.Position.X;
+				return layer.PresentationLayer.Position.X;
 			case "positiony":
-				return layer.Position.Y;
+				return layer.PresentationLayer.Position.Y;
 			case "opacity":
-				return layer.Opacity;
+				return layer.PresentationLayer.Opacity;
 			case "scale":
 				return layer.PresentationLayer.Transform.m11;
 //			case "rotation":

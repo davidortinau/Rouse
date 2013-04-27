@@ -25,16 +25,19 @@ namespace RouseSamples
 			base.ViewDidLoad ();
 			
 			// create the navigation items
-			NavItemGroup navGroup = new NavItemGroup ("UIView Animations");
+			NavItemGroup navGroup = new NavItemGroup ("Animations");
 			navItems.Add (navGroup);
+//			navGroup.Items.Add (new NavItem ("Temp", "", typeof (TempViewController)));
 			navGroup.Items.Add (new NavItem ("PositionX", "", typeof (PositionXViewController)));
 			navGroup.Items.Add (new NavItem ("PositionY", "", typeof (PositionYViewController)));
+			navGroup.Items.Add (new NavItem ("Position", "", typeof (PositionViewController)));
 			navGroup.Items.Add (new NavItem ("Opacity", "", typeof (CanChangeOpacity)));
 			navGroup.Items.Add (new NavItem ("Scale", "", typeof (ScaleViewController)));
 
+
 			
-			NavItemGroup caGroup = new NavItemGroup("CA Animations");
-			navItems.Add( caGroup );
+//			NavItemGroup caGroup = new NavItemGroup("CA Animations");
+//			navItems.Add( caGroup );
 
 			// create a table source from our nav items
 			tableSource = new NavItemTableSource (navItems);

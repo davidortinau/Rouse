@@ -112,6 +112,8 @@
     <Compile Include="Views\PositionYViewController.cs" />
     <Compile Include="Views\ScaleViewController.cs" />
     <Compile Include="Views\Controls\DarkButton.cs" />
+    <Compile Include="Views\TempVIewController.cs" />
+    <Compile Include="Views\PositionViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
