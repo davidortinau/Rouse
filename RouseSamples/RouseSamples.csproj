@@ -84,8 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="New Folder\" />
     <Folder Include="Code\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -93,30 +94,24 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="RouseSamplesViewController.designer.cs">
-      <DependentUpon>PositionXViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CanChangeOpacity.cs" />
-    <Compile Include="CanChangeOpacity.designer.cs">
-      <DependentUpon>CanChangeOpacity.cs</DependentUpon>
-    </Compile>
     <Compile Include="MasterViewController.cs" />
     <Compile Include="SplitViewController.cs" />
     <Compile Include="SplitViewController.designer.cs">
       <DependentUpon>SplitViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseDetailViewController.cs" />
-    <Compile Include="PositionXViewController.cs" />
     <Compile Include="Code\UIColorExtensions.cs" />
     <Compile Include="Code\NavigationTable\NavItem.cs" />
     <Compile Include="Code\NavigationTable\NavItemGroup.cs" />
     <Compile Include="Code\NavigationTable\NavItemTableSource.cs" />
     <Compile Include="Code\NavigationTable\RowClickedEventArgs.cs" />
-    <Compile Include="PositionYViewController.cs" />
-    <Compile Include="PositionYViewController.designer %28copy%29.cs">
-      <DependentUpon>ScaleViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ScaleViewController.cs" />
+    <Compile Include="Views\Controls\LogoLayer.cs" />
+    <Compile Include="Views\Controls\LogoView.cs" />
+    <Compile Include="Views\BaseDetailViewController.cs" />
+    <Compile Include="Views\CanChangeOpacity.cs" />
+    <Compile Include="Views\PositionXViewController.cs" />
+    <Compile Include="Views\PositionYViewController.cs" />
+    <Compile Include="Views\ScaleViewController.cs" />
+    <Compile Include="Views\Controls\DarkButton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

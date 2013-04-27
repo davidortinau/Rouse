@@ -17,16 +17,18 @@ namespace RouseSamples
 
 		public BaseDetailViewController () : base ()
 		{
-			View.BackgroundColor = UIColor.White;
+			View.BackgroundColor = UIColor.Clear.FromHex(0x333333);
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
-			toolbar = new UIToolbar(new RectangleF(0, 0, View.Frame.Width, 30));
+			toolbar = new UIToolbar(new RectangleF(0, 0, View.Frame.Width, 40));
 			toolbar.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
+			toolbar.TintColor = UIColor.Clear.FromHex(0x1d1d1d);
 			View.AddSubview(toolbar);
+
 		}
 
 		/// <summary>
@@ -34,6 +36,7 @@ namespace RouseSamples
 		/// </summary>
 		public void AddContentsButton (UIBarButtonItem button)
 		{
+			Console.WriteLine("AddContentsButton");
 			button.Title = "Contents";
 			toolbar.SetItems (new UIBarButtonItem[] { button }, false );
 		}
@@ -43,14 +46,15 @@ namespace RouseSamples
 		/// </summary>
 		public void RemoveContentsButton ()
 		{
+			Console.WriteLine("RemoveContentsButton");
 			toolbar.SetItems (new UIBarButtonItem[0], false);
 		}
 
-//		public void Update (string text) {
-////			label.Text = String.Format (content, text);
-//			// dismiss the popover if currently visible
-//			if (Popover != null)
-//				Popover.Dismiss (true);
-//		}
+		public void Update (string text) {
+//			label.Text = String.Format (content, text);
+			// dismiss the popover if currently visible
+			if (Popover != null)
+				Popover.Dismiss (true);
+		}
 	}
 }

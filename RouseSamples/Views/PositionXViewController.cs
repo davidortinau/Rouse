@@ -6,6 +6,7 @@ using MonoTouch.UIKit;
 using MonoTouch.CoreAnimation;
 using RouseLib.Utils;
 using RouseLib;
+using Controls;
 
 namespace RouseSamples
 {
@@ -39,20 +40,19 @@ namespace RouseSamples
 
 		void initUI ()
 		{
-			logo = new CALayer();
-			logo.Contents = UIImage.FromBundle("icon-100.png").CGImage;
+			logo = new LogoLayer();
 			logo.Frame = new RectangleF(20, 60, logo.Contents.Width, logo.Contents.Height);
 			View.Layer.AddSublayer( logo );
 
-			logoView = new UIImageView( new RectangleF(20, 240, 100, 100));
-			logoView.Image = UIImage.FromBundle("icon-100.png");
+			logoView = new LogoView();
+			logoView.Frame = new RectangleF(20, 240, 100, 100);
 			View.AddSubview( logoView );
 
 		}
 
 		void initButtons()
 		{
-			var moveBtn = new UIButton( UIButtonType.RoundedRect );
+			var moveBtn = UIButton.FromType(UIButtonType.RoundedRect);
 			moveBtn.Frame = new RectangleF(View.Bounds.Width - 240, 60, 200, 40);
 			moveBtn.SetTitle("Move X", UIControlState.Normal);
 			moveBtn.TouchUpInside += (object sender, EventArgs e) => {

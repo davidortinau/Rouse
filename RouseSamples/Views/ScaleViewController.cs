@@ -6,6 +6,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.CoreAnimation;
 using RouseLib;
+using Controls;
 
 namespace RouseSamples
 {
@@ -15,10 +16,6 @@ namespace RouseSamples
 
 		UIImageView logoView;
 
-		public ScaleViewController () : base ()
-		{
-		}
-		
 		public override void DidReceiveMemoryWarning ()
 		{
 			// Releases the view if it doesn't have a superview.
@@ -37,8 +34,12 @@ namespace RouseSamples
 
 		void initUI ()
 		{			
-			logoView = new UIImageView( new RectangleF(View.Center.X, View.Center.Y, 100, 100));
-			logoView.Image = UIImage.FromBundle("icon-100.png");
+			logo = new LogoLayer();
+			logo.Frame = new RectangleF( View.Center.X - logo.Frame.Width * 0.5f, View.Center.Y - 150, logo.Frame.Width, logo.Frame.Height);
+			View.Layer.AddSublayer( logo );
+
+			logoView = new LogoView();
+			logoView.Frame = new RectangleF( View.Center.X - logoView.Frame.Width * 0.5f, View.Center.Y + 150, logoView.Frame.Width, logoView.Frame.Height);
 			View.AddSubview( logoView );
 			
 		}
@@ -46,13 +47,15 @@ namespace RouseSamples
 		void initButtons()
 		{
 			var moveBtn = new UIButton( UIButtonType.RoundedRect );
-			moveBtn.Frame = new RectangleF(View.Bounds.Width - 340, 60, 200, 40);
+			moveBtn.Frame = new RectangleF(View.Bounds.Width * 0.5f - 100, 60, 200, 40);
 			moveBtn.SetTitle("Scale", UIControlState.Normal);
 			moveBtn.TouchUpInside += (object sender, EventArgs e) => {
 				if(logoView.Layer.PresentationLayer.Frame.Width < 200){
 					Rouse.To (logoView, 1, new KeyPaths{ Scale = 2}, Easing.EaseInExpo);
+					Rouse.To (logo, 1, new KeyPaths{ Scale = 2}, Easing.EaseInExpo);
 				}else{
 					Rouse.To (logoView, 1, new KeyPaths{ Scale = 1}, Easing.EaseOutExpo);
+					Rouse.To (logo, 1, new KeyPaths{ Scale = 1}, Easing.EaseOutExpo);
 				}
 			};
 			View.AddSubview( moveBtn );

@@ -23,38 +23,42 @@ namespace RouseSamples
 
 			ViewControllers = new UIViewController[]{masterView, detailView};
 
-			Delegate = new SplitViewDelegate();
+			masterView.RowClicked += (object sender, RowClickedEventArgs e) => {
+				this.HandleRowClicked (e);
+			};
+
+			this.WillHideViewController += (object sender, UISplitViewHideEventArgs e) => {
+				popoverController = e.Pc;
+				rootPopoverButtonItem = e.BarButtonItem;
+				(detailView as BaseDetailViewController).Popover = popoverController;
+				(detailView as BaseDetailViewController).AddContentsButton (rootPopoverButtonItem);
+			};
+			
+			this.WillShowViewController += (object sender, UISplitViewShowEventArgs e) => {
+				(detailView as BaseDetailViewController).Popover = null;
+				(detailView as BaseDetailViewController).RemoveContentsButton ();
+				popoverController = null;
+				rootPopoverButtonItem = null;
+			};
 		}
 		
 		public override void DidReceiveMemoryWarning ()
 		{
-			// Releases the view if it doesn't have a superview.
 			base.DidReceiveMemoryWarning ();
-			
-			// Release any cached data, images, etc that aren't in use.
 		}
 		
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			
-			masterView.RowClicked += (object sender, RowClickedEventArgs e) => {
-				this.HandleRowClicked (e);
-			};
 		}
 
 		protected void HandleRowClicked(RowClickedEventArgs e)
 		{
 			Console.WriteLine("Changing Screens");
-			
+
 			if (popoverController != null)
 				popoverController.Dismiss (true);
 
-//			(detailView as BaseDetailViewController).Update (e.Item);
-			
-			// if the nav item has a proper controller, push it on to the NavigationController
-			// NOTE: we could also raise an event here, to loosely couple this, but isn't neccessary,
-			// because we'll only ever use this this way
 			if (e.Item.Controller != null)
 			{
 				UIView.BeginAnimations("DetailViewPush");
@@ -100,7 +104,7 @@ namespace RouseSamples
 							UIView.BeginAnimations("DetailViewPush");
 							detailView = e.Item.Controller;
 							this.ViewControllers = new UIViewController[] { masterView,  detailView};
-							UIView.SetAnimationTransition(UIViewAnimationTransition.CurlUp, this.ViewControllers[1].View, false);
+							UIView.SetAnimationTransition(UIViewAnimationTransition.FlipFromRight, this.ViewControllers[1].View, false);
 							UIView.CommitAnimations();
 						}
 						else
@@ -110,36 +114,11 @@ namespace RouseSamples
 						Console.WriteLine ("constructor not found");
 				}
 			}
-			
+
 			if (rootPopoverButtonItem != null)
 				(detailView as BaseDetailViewController).AddContentsButton (rootPopoverButtonItem);
 		}
 
-		public override bool ShouldAutorotateToInterfaceOrientation
-			(UIInterfaceOrientation toInterfaceOrientation)
-		{
-			return true;
-		}
-	}
-
-	public class SplitViewDelegate : UISplitViewControllerDelegate {
-		public override bool ShouldHideViewController (UISplitViewController svc, UIViewController viewController, UIInterfaceOrientation inOrientation)
-		{
-			return inOrientation == UIInterfaceOrientation.Portrait
-				|| inOrientation == UIInterfaceOrientation.PortraitUpsideDown;
-		}
-		
-		public override void WillHideViewController (UISplitViewController svc, UIViewController aViewController, UIBarButtonItem barButtonItem, UIPopoverController pc)
-		{
-			BaseDetailViewController detailView = svc.ViewControllers[1] as BaseDetailViewController;
-			detailView.AddContentsButton (barButtonItem);
-		}
-		
-		public override void WillShowViewController (UISplitViewController svc, UIViewController aViewController, UIBarButtonItem button)
-		{
-			BaseDetailViewController detailView = svc.ViewControllers[1] as BaseDetailViewController;
-			detailView.RemoveContentsButton ();
-		}
 	}
 }
 
