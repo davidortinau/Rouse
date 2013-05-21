@@ -13,6 +13,25 @@ Example:
 Rouse.To( layer, 1, new KeyPaths{ PositionX = 120}, Easing.EaseOutExpo );
 </pre>
 
+Calaba.sh Tests
+=====
+
+Install Bundler
+<pre>
+	gem install bundler
+</pre>
+
+Install Gems
+<pre>
+	bundle install
+</pre>
+
+Run iOS Features
+<pre>
+	cucumber --profile ios
+</pre>
+
+
 
 Copyright 2013 Simply Profound <dave@simplyprofound.com>
 
