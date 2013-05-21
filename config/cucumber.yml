@@ -1,0 +1,9 @@
+# config/cucumber.yml
+##YAML Template
+---
+# android: RESET_BETWEEN_SCENARIOS=1 PLATFORM=android -r features/support -r features/android/support -r features/android/helpers -r features/step_definitions -r features/android/pages/
+
+ios: RESET_BETWEEN_SCENARIOS=1 DEVICE=ipad CALABASH_FULL_CONSOLE_OUTPUT=false APP_BUNDLE_PATH=RouseSamples/bin/iPhoneSimulator/Debug/RouseSamples.app NO_STOP=1 OS=ios6 PLATFORM=ios -r features/support -r features/ios/support -r features/ios/helpers -r features/step_definitions -r features/ios/pages
+
+# need to put this somewhere for load on pre4
+# APP_BUNDLE_PATH = "/work/field-service-example/FieldService.iOS/bin/iPhoneSimulator/Debug/FieldServiceiOS.app"
